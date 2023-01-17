@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -37,7 +38,7 @@ public class PersonaController {
                   </head>
                   <body>
                     <h1>Bienvienido a la app de personas!</h1>
-                    <a class="btn btn-primary" href="https://www.google.com.ar/"> Lista de personas </a>   
+                    <a class="btn btn-primary" href="https://deploy-personas-production.up.railway.app/personas"> Lista de personas </a>   
                     <a class="btn btn-primary" href="https://www.google.com.ar/"> Agregar una nueva persona </a> 
                     <a class="btn btn-primary" href="https://www.google.com.ar/"> Eliminar persona </a>  
                     <!-- Optional JavaScript; choose one of the two! -->
@@ -57,14 +58,10 @@ public class PersonaController {
                 """;
     }
 
-    @GetMapping("api/books/{id}")
-    public ResponseEntity<Persona> findById(@PathVariable Long id){
-        Optional<Persona> personaOptional = personaRepository.findById(id);
-        if(personaOptional.isPresent()){
-            return ResponseEntity.ok(personaOptional.get());
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/Personas")
+    public List<Persona> findAll(){
+        return personaRepository.findAll();
     }
+    
 
 }
