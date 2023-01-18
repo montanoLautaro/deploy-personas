@@ -13,7 +13,7 @@ public class EjercicioDeployApplication {
 		ApplicationContext context = SpringApplication.run(EjercicioDeployApplication.class, args);
 		PersonaRepository personaRepository = context.getBean(PersonaRepository.class);
 
-		//personaRepository.save(new Persona(null, "Romina", "Gomez", "Estudiante"));
+		personaRepository.save(new Persona(null, "Romina", "Gomez", "Estudiante"));
 
 	}
 
