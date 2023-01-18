@@ -65,4 +65,9 @@ public class PersonaController {
         service.eliminarPersona(id);
         return "redirect:/personas";
     }
+
+    @GetMapping("/extra")
+    public String mostrarExtra(){
+        return "extra";
+    }
 }
