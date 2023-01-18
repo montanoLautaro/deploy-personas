@@ -1,25 +1,18 @@
 package com.example.ejerciciodeploy.controllers;
 
-import com.example.ejerciciodeploy.models.Persona;
-import com.example.ejerciciodeploy.repositories.PersonaRepository;
+import com.example.ejerciciodeploy.services.PersonaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class PersonaController {
-    private PersonaRepository personaRepository;
+    private PersonaService service;
     private final Logger log = LoggerFactory.getLogger(PersonaController.class);
 
-    public PersonaController(PersonaRepository personaRepository) {
-        this.personaRepository = personaRepository;
-    }
+
 
     @GetMapping("/")
     public String bootstrap(){
@@ -58,10 +51,14 @@ public class PersonaController {
                 """;
     }
 
-    @GetMapping("/Personas")
-    public List<Persona> findAll(){
-        return personaRepository.findAll();
+
+    @GetMapping("/personas")
+    public String findAll(Model modelo){
+        modelo.addAttribute("personas", service.listarPersonas());
+        return "personas"; // retorna el archivo personas
     }
-    
+
+
+
 
 }
