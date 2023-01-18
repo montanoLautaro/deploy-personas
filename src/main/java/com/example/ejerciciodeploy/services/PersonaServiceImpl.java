@@ -25,5 +25,20 @@ public class PersonaServiceImpl implements PersonaService{
         return personaRepository.save(persona);
     }
 
+    @Override
+    public Persona obtenerPersonaPorId(Long id) {
+        return personaRepository.findById(id).get();
+    }
+
+    @Override
+    public Persona actualizarPersona(Persona persona) {
+        return personaRepository.save(persona);
+    }
+
+    @Override
+    public void eliminarPersona(Long id) {
+        personaRepository.deleteById(id);
+    }
+
 
 }

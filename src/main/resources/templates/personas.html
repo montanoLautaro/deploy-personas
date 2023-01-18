@@ -30,6 +30,7 @@
                 <th scope="col">Apellido</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Rol</th>
+                <th scope="col">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +38,10 @@
                 <td th:text="${persona.apellido}">Apellido</td>
                 <td th:text="${persona.nombre}">Nombre</td>
                 <td th:text="${persona.rol}">@Rol</td>
+                <td >
+                    <a th:ref="@{/personas/editar/{id}(id=${persona.id})}" class="btn btn-info">Editar</a>
+                    <a th:ref="@{/personas/{id}(id=${persona.id})}" class="btn btn-danger">Eliminar</a>
+                </td>
             </tr>
             </tbody>
         </table>
