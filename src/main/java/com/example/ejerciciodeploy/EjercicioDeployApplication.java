@@ -14,6 +14,8 @@ public class EjercicioDeployApplication {
 		PersonaRepository personaRepository = context.getBean(PersonaRepository.class);
 
 		personaRepository.save(new Persona(null, "Romina", "Gomez", "Estudiante"));
+		personaRepository.save(new Persona(null, "Juan", "Perez", "Profesor"));
+		personaRepository.save(new Persona(null, "Esteban", "Quito", "Estudiante"));
 
 	}
 

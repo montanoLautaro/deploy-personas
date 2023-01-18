@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PersonaService {
     public List<Persona> listarPersonas();
+    public Persona guardarPersona(Persona persona);
 }
